@@ -18,6 +18,14 @@ public class ProductRepository {
         return product;
     }
 
+    public Product edit(String productId, Product newProduct){
+        newProduct.setProductId(productId);
+        Product oldProduct = findById(productId);
+        int index = productData.indexOf(oldProduct);
+        productData.set(index, newProduct);
+        return productData.get(index);
+    }
+
     public void delete(String productId) {
         for (Product product: productData) {
             if (productId.equals(product.getProductId())) {
@@ -30,4 +38,13 @@ public class ProductRepository {
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
+
+    public Product findById(String productId) {
+        for (Product product: productData) {
+            if (productId.equals(product.getProductId())) {
+                return product;
+            }
+        }
+        return null;
+    }    
 }

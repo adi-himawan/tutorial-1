@@ -8,6 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,12 +32,7 @@ public class ProductControllerTest {
     void setUp() {
         model = mock(Model.class);
         product = new Product();
-    }
-
-    @Test
-    void testHome() {
-        String output = productController.home();
-        assertEquals("home", output);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test

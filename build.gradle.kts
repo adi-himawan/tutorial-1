@@ -20,7 +20,7 @@ java {
 
 sonar {
   properties {
-    property("sonar.projectKey", "adi-himawan_eshop")
+    property("sonar.projectKey", "adi-himawan_tutorial-1")
     property("sonar.organization", "adi-himawan")
     property("sonar.host.url", "https://sonarcloud.io")
   }

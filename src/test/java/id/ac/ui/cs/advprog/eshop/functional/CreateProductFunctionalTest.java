@@ -43,7 +43,7 @@ public class CreateProductFunctionalTest {
 
     @Test
     void createAndFindProduct_fromHomePage(ChromeDriver driver) throws Exception {
-        driver.get(baseUrl + "/product");
+        driver.get(baseUrl);
 
         // Membuka halaman create product dari halaman home.
         driver.findElement(By.id("productList")).click(); 

@@ -32,7 +32,6 @@ class ProductControllerTest {
     void setUp() {
         model = mock(Model.class);
         product = new Product();
-        MockitoAnnotations.openMocks(this);
     }
 
     @Test

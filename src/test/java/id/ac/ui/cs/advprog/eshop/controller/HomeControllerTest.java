@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-public class HomeControllerTest {
+class HomeControllerTest {
 
     @InjectMocks
     HomeController homeController;

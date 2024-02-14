@@ -18,7 +18,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductControllerTest {
+class ProductControllerTest {
 
     @InjectMocks
     ProductController productController;
@@ -49,28 +49,28 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testEditProductPage() {
+    void testEditProductPage() {
         String productId = "testProductId";
         when(productService.findById(productId)).thenReturn(product);
 
         productController.editProductPage(productId, model);
-        verify(model).addAttribute(eq("product"), eq(product));
+        verify(model).addAttribute("product", product);
     }
 
     @Test
-    public void testEditProductPost() {
+    void testEditProductPost() {
         String productId = "testProductId";
 
         productController.editProductPost(productId, product, model);
-        verify(productService).edit(eq(productId), eq(product));
+        verify(productService).edit(productId, product);
     }
 
     @Test
-    public void testDeleteProductPost() {
+    void testDeleteProductPost() {
         String productId = "testProductId";
 
         productController.deleteProductPost(productId);
-        verify(productService).delete(eq(productId));
+        verify(productService).delete(productId);
     }
 
     @Test

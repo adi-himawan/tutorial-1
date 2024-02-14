@@ -54,7 +54,7 @@ class ProductControllerTest {
         when(productService.findById(productId)).thenReturn(product);
 
         productController.editProductPage(productId, model);
-        verify(model).addAttribute(eq("product"), eq(product));
+        verify(model).addAttribute("product", product);
     }
 
     @Test
@@ -62,7 +62,7 @@ class ProductControllerTest {
         String productId = "testProductId";
 
         productController.editProductPost(productId, product, model);
-        verify(productService).edit(eq(productId), eq(product));
+        verify(productService).edit(productId, product);
     }
 
     @Test
@@ -70,7 +70,7 @@ class ProductControllerTest {
         String productId = "testProductId";
 
         productController.deleteProductPost(productId);
-        verify(productService).delete(eq(productId));
+        verify(productService).delete(productId);
     }
 
     @Test

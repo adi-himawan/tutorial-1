@@ -4,7 +4,8 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Map;
-import java.util.Arrays;
+
+import enums.PaymentStatus;
 
 @Builder
 @Getter
@@ -44,12 +45,10 @@ public class Payment {
     }
 
     public void setStatus(String status) {
-        String[] statusList = {"PENDING", "SUCCESS", "REJECTED"};
-
-        if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
-            throw new IllegalArgumentException();
-        } else {
+        if (PaymentStatus.contains(status)) {
             this.status = status;
+        } else {
+            throw new IllegalArgumentException();
         }
     }
 }

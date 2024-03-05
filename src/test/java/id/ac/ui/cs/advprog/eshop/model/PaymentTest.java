@@ -57,7 +57,7 @@ class PaymentTest {
             "", order, paymentData);
 
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ESHOP1234ABC4321", payment.getPaymentData().get("voucherCode"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("PENDING", payment.getStatus());
@@ -71,7 +71,7 @@ class PaymentTest {
             "", order, paymentData, "SUCCESS");
 
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ESHOP1234ABC4321", payment.getPaymentData().get("voucherCode"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("SUCCESS", payment.getStatus());
@@ -85,7 +85,7 @@ class PaymentTest {
             "", order, paymentData, "REJECTED");
 
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ESHOP1234ABC4321", payment.getPaymentData().get("voucherCode"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("REJECTED", payment.getStatus());
@@ -110,7 +110,7 @@ class PaymentTest {
             "", order, paymentData);
 
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ABC", payment.getPaymentData().get("bankName"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("PENDING", payment.getStatus());
@@ -125,7 +125,7 @@ class PaymentTest {
             "", order, paymentData, "SUCCESS");
         
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ABC", payment.getPaymentData().get("bankName"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("SUCCESS", payment.getStatus());
@@ -140,7 +140,7 @@ class PaymentTest {
             "", order, paymentData, "REJECTED");
 
         assertSame(payment.getOrder(), order);
-        assertNull(payment.getPaymentData());
+        assertEquals("ABC", payment.getPaymentData().get("bankName"));
         assertEquals("2a61d0e1-6746-4a18-a4cd-85412d769edb", payment.getId());
         assertEquals("", payment.getMethod());
         assertEquals("REJECTED", payment.getStatus());

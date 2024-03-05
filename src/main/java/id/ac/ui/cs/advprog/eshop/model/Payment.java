@@ -2,9 +2,9 @@ package id.ac.ui.cs.advprog.eshop.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Map;
+import java.util.Arrays;
 
 @Builder
 @Getter
@@ -13,12 +13,43 @@ public class Payment {
     String method;
     Order order;
     Map<String, String> paymentData;
-    @Setter
     String status;
 
-    public Payment(String id, String method, Order order, Map<String, String> paymentData) {
+    public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
+        this.id = id;
+        this.method = method;
+        this.setOrder(order);
+        this.setPaymentData(paymentData);
+        this.setStatus(status);
     }
 
-    public Payment(String id, String method, Order order, Map<String, String> paymentData, String status) {
+    public Payment(String id, String method, Order order, Map<String, String> paymentData) {
+        this(id, method, order, paymentData, "PENDING");
+    }
+
+    public void setOrder(Order order) {
+        if (order == null) {
+            throw new IllegalArgumentException();
+        } else {
+            this.order = order;
+        }
+    }
+
+    public void setPaymentData(Map<String, String> paymentData) {
+        if (paymentData == null) {
+            throw new IllegalArgumentException();
+        } else {
+            this.paymentData = paymentData;
+        }
+    }
+
+    public void setStatus(String status) {
+        String[] statusList = {"PENDING", "SUCCESS", "REJECTED"};
+
+        if (Arrays.stream(statusList).noneMatch(item -> (item.equals(status)))) {
+            throw new IllegalArgumentException();
+        } else {
+            this.status = status;
+        }
     }
 }

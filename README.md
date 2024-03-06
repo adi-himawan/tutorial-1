@@ -78,3 +78,14 @@ Setiap kali ada perubahan kode dalam suatu branch, kode akan secara otomatis dip
 - Jika bekerja dalam tim, kode akan lebih sulit untuk dibaca dan dipahami orang lain karena fungsionalitas yang berlebihan dalam suatu class atau function.
 
 </details>
+
+<details>
+<summary> Tutorial 4 </summary>
+
+#### 1. Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+Setelah memanfaatkan TDD flow selama pengerjaan modul pekan ini, saya merasa TDD flow sangat berguna dan memberi manfaat yang signifikan. TDD flow sendiri dapat dibagi menjadi tiga tahapan, yakni [RED], [GREEN], dan [REFACTOR]. Dengan membuat unit test sebelum menulis kode (pada tahap [RED]), kita seakan memiliki "constraint" untuk memastikan bahwa kode yang dituliskan (pada tahap [GREEN]) akan sesuai dengan requirements. Selain itu, adanya unit test juga mempermudah proses refactoring (pada tahap [REFACTOR]) karena membantu kita untuk melakukan testing pada perubahan kode dengan lebih efisien. Sebagai kesimpulan, pemanfaatan TDD flow akan sangat berguna dalam proses pengembangan website/aplikasi.
+
+#### 2. You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+Menurut saya, unit test yang saya buat pada pekan ini sudah sesuai dengan prinsip F.I.R.S.T. (Fast, Independent, Repeatable, Self-Validating, and Timely). Setiap unit test yang bergantung pada bagian kode tertentu telah menggunakan mock sehingga testing dapat dilakukan tanpa bergantung pada unit test yang lain (Independent). Salah satu contoh penerapannya adalah di OrderServiceImplTest.java. Selain itu, setiap unit test juga sudah memiliki assertions (Self-Validating). Selama pengerjaan modul, saya merasa semua unit test yang dibuat dapat berjalan dengan cepat (Fast) serta mampu memberikan hasil yang konsisten (Repeatable). Terakhir, unit test yang dibuat juga sudah dirancang agar mampu meng-cover sebanyak mungkin kasus "happy" dan "unhappy" dengan efektif (Timely).
+
+</details>

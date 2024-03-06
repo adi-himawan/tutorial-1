@@ -15,15 +15,16 @@ public class PaymentByVoucher extends Payment {
     public void setPaymentData(Map<String, String> paymentData) {
         int charCount = 0;
         int numCount = 0;
+        String voucherCode = paymentData.get("voucherCode");
 
-        for (int i = 0; i < paymentData.get("voucherCode").length(); i++) {
-            if (Character.isDigit(paymentData.get("voucherCode").charAt(i))) {
+        for (int i = 0; i < voucherCode.length(); i++) {
+            if (Character.isDigit(voucherCode.charAt(i))) {
                 numCount += 1;
             }
             charCount++;
         }
 
-        if (charCount != 16 || !paymentData.get("voucherCode").startsWith("ESHOP") || numCount != 8) {
+        if (charCount != 16 || !voucherCode.startsWith("ESHOP") || numCount != 8) {
             throw new IllegalArgumentException();
         } else {
             this.paymentData = paymentData;

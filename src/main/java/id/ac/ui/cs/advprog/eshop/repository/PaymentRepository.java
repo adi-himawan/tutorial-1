@@ -11,13 +11,15 @@ public class PaymentRepository {
     private List<Payment> paymentData = new ArrayList<>();
 
     public Payment save(Payment payment) {
-        for (Payment savedPayment : paymentData) {
-            if (savedPayment.getId().equals(payment.getId())) {
-                throw new IllegalStateException();
-            }
-        }
+        validatePayment(payment.getId());
         paymentData.add(payment);
         return payment;
+    }
+
+    private void validatePayment(String id) {
+        if (paymentData.stream().anyMatch(payment -> payment.getId().equals(id))) {
+            throw new IllegalStateException("Payment with ID " + id + " already exists");
+        }
     }
 
     public Payment findById(String id) {

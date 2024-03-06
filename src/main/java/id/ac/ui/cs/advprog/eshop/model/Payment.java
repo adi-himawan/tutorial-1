@@ -5,7 +5,7 @@ import lombok.Getter;
 
 import java.util.Map;
 
-import enums.PaymentStatus;
+import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 
 @Builder
 @Getter

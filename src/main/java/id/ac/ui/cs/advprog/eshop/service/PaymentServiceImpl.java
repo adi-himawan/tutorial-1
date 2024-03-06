@@ -6,6 +6,9 @@ import id.ac.ui.cs.advprog.eshop.repository.PaymentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import enums.OrderStatus;
+import enums.PaymentStatus;
+
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -24,11 +27,11 @@ public class PaymentServiceImpl implements PaymentService {
     public void setStatus(Payment payment, String status) {
         payment.setStatus(status);
 
-        if (payment.getStatus().equals("SUCCESS")) {
-            payment.getOrder().setStatus("SUCCESS");
+        if (payment.getStatus().equals(PaymentStatus.SUCCESS.getValue())) {
+            payment.getOrder().setStatus(OrderStatus.SUCCESS.getValue());
 
-        } else if (payment.getStatus().equals("REJECTED")) {
-            payment.getOrder().setStatus("FAILED");
+        } else if (payment.getStatus().equals(PaymentStatus.REJECTED.getValue())) {
+            payment.getOrder().setStatus(OrderStatus.FAILED.getValue());
         }
     }
 
